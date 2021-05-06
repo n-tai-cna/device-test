@@ -23,8 +23,9 @@
       "bson",
       "cmtp",
       "configurator",
-      "usen"
+      "usen",
+      "wincalx"
     ],
-    "terminal.integrated.cwd": "../",
+    "terminal.integrated.cwd": "${workspaceFolder}",
   }
 }
