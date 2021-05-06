@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test-client", "test-client.csproj", "{6B1143C1-5DF6-4705-A0B8-9836745FA22D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wincalx-device-connector", "..\wincalx-device-connector\wincalx-device-connector.csproj", "{1AF2ED67-6DDE-455F-90F0-B86B7BC704C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wincalx-device-connector", "..\wincalx-connector-dll\wincalx-device-connector.csproj", "{1AF2ED67-6DDE-455F-90F0-B86B7BC704C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
