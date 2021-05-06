@@ -1,0 +1,14 @@
+﻿{
+  "WincalXRabbit": {
+    "Username": "wincalx_external",
+    "Password": "hubpas-1fawsi-deKqof",
+    "HostName": "rabbitmq.dev.wincalx.com",
+    "Port": 5671,
+    "vHost": "/terminal",
+    "SslEnabled": true,
+    "ReceiveTimeout": "10000"
+  },
+  "WincalXFirebase": {
+    "ApiKey": "AIzaSyBqs59mDvoQqVEh4XYoIx9J6ElJT8YbZC4"
+  }
+}
