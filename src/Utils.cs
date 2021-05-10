@@ -37,7 +37,7 @@ class Utils
   {
     requestMessage.Command = command;
     requestMessage.ExtendParameters = Utils.serializeObjectSnakeJson(extendParameters);
-    Console.Out.WriteLine(nameof(extendParameters));
+    Console.Out.WriteLine(requestMessage.Command);
     return this.requestAndResponse(requestMessage);
   }
 

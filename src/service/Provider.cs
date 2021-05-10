@@ -46,19 +46,19 @@ public class Provider
         default:
         case "3009":
           Console.Out.WriteLine("master_data_request");
-          utils.requestAndResponse(requestMessage, input, null);
+          utils.requestAndResponse(requestMessage, "3009", null);
           break;
         case "3010":
           Console.Out.WriteLine("Log_Registration");
-          utils.requestAndResponse(requestMessage, input, new LogRegistration.RequestExtendParam());
+          utils.requestAndResponse(requestMessage, "3010", new LogRegistration.RequestExtendParam());
           break;
         case "4008":
           Console.Out.WriteLine("card_issuance");
-          utils.requestAndResponse(requestMessage, input, new Card.IssueInfo.RequestExtendParam());
+          utils.requestAndResponse(requestMessage, "4008", new Card.IssueInfo.RequestExtendParam());
           break;
         case "4009":
           Console.Out.WriteLine("card_qty_notify");
-          utils.requestAndResponse(requestMessage, input, new Card.QtyNotify.RequestExtendParam());
+          utils.requestAndResponse(requestMessage, "4009", new Card.QtyNotify.RequestExtendParam());
           break;
         case "Cancel":
           //Cancel Comsumer.
