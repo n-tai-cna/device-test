@@ -11,7 +11,7 @@ namespace Citynow.Test
 
       XmlConfigurator.Configure();
 
-      string path = Setting.env == "local" ? "C:/Users/NGUYEN DUC ANH TAI/Documents/wincalx/test-client/src/WincalXConfigLocal.json" : null;
+      string path = Setting.env == "local" ? ".\\src\\WincalXConfigLocal.json" : null;
 
       WincalXConnector Connector = Customer.execute(path);
 
