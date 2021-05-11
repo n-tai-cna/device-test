@@ -43,7 +43,6 @@ public class Provider
           requestMessage.Message = Utility.SerializeToBSON(new SimpleMessageInfo(input2));
           utils.requestAndResponse(requestMessage);
           break;
-        default:
         case "3009":
           Console.Out.WriteLine("master_data_request");
           utils.requestAndResponse(requestMessage, "3009", null);
@@ -52,11 +51,12 @@ public class Provider
           Console.Out.WriteLine("Log_Registration");
           utils.requestAndResponse(requestMessage, "3010", new LogRegistration.RequestExtendParam());
           break;
+        default:
         case "3900":
           logger.Info("Enter name of xml file: ");
           string xmlFileName = Console.ReadLine();
           Console.Out.WriteLine("smart_check_in");
-          utils.requestAndResponse(requestMessage, "3900", new SmartCheckIn.RequestExtendParam("api"), xmlFileName);
+          utils.requestAndResponse<SmartCheckInRequest.GetReserveNoRequest>(requestMessage, "3900", new SmartCheckIn.RequestExtendParam("api"), "./src/message/" + xmlFileName + ".xml");
           break;
         case "4008":
           Console.Out.WriteLine("card_issuance");

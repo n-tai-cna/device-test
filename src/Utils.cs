@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using Almex.WincalX.Common.Constant.w0cmtp1;
 using Almex.WincalX.Common.w0cmtp1;
 using Almex.WincalX.Service.w0cmtp1;
@@ -22,7 +21,10 @@ class Utils
     requestMessage.RequestJob = createRequestJob(Guid.NewGuid().ToString(), RequestJobConst.NEW);
     logger.Info($"BASIC PARAM >>> {requestMessage.BasicParameters}");
     logger.Info($"EXTEND PARAM >>> {requestMessage.ExtendParameters}");
-    logger.Info($"MESSAGE >>> {Utility.DeserializeFromBSON<Object>(requestMessage.Message)}");
+    if (requestMessage.Message != null)
+    {
+      logger.Info($"MESSAGE >>> {Utility.DeserializeFromBSON<Object>(requestMessage.Message)}");
+    }
 
     MessageInfo responseMessage = connector.RequestAndResponse(requestMessage);
     logger.Info(responseMessage);
@@ -31,7 +33,10 @@ class Utils
     {
       logger.Info($"BASIC PARAM RESPONSE {responseMessage.BasicParameters}");
       logger.Info($"EXTEND PARAM RESPONSE {responseMessage.ExtendParameters}");
-      logger.Info($"MESSAGE >>> {Utility.DeserializeFromBSON<Object>(responseMessage.Message)}");
+      if (responseMessage.Message != null)
+      {
+        logger.Info($"MESSAGE >>> {Utility.DeserializeFromBSON<Object>(responseMessage.Message)}");
+      }
     }
     Console.Out.WriteLine("-----------------------------------------------------------------\n");
 
@@ -46,16 +51,13 @@ class Utils
     return this.requestAndResponse(requestMessage);
   }
 
-  public MessageInfo requestAndResponse(MessageInfo requestMessage, string command, Object extendParameters, string xmlFileName)
+  public MessageInfo requestAndResponse<T>(MessageInfo requestMessage, string command, Object extendParameters, string requestFilePath) where T : SmartCheckInRequest.BaseXmlRequest
   {
-    
-    System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(typeof(Object));  
-    System.IO.StreamReader file = new System.IO.StreamReader("./src/message/" + xmlFileName +".xml");
-    Object overview =  reader.Deserialize(file);  
-    file.Close();  
-    Console.Out.WriteLine(overview);
-
-    requestMessage.Message = Utility.SerializeToBSON(overview);
+    System.IO.StreamReader file = new System.IO.StreamReader(requestFilePath);
+    System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(typeof(T));
+    T request = (T)reader.Deserialize(file);
+    file.Close();
+    requestMessage.Message = Utility.SerializeToBSON(request);
     return this.requestAndResponse(requestMessage, command, extendParameters);
   }
 

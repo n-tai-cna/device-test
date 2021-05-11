@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GetReserveNoRequest>
+  <RequestInformation>
+    <RequestCode>3</RequestCode>
+    <TenpoCode>00005</TenpoCode>
+    <LanguageCode>1</LanguageCode>
+    <TerminalCode>1</TerminalCode>
+  </RequestInformation>
+  <SearchData>
+    <PmsRsvNoForSearch>2246-3455</PmsRsvNoForSearch>
+    <PhoneNumber>+(84)123-345-5454</PhoneNumber>
+    <NameKana>monkey d luffy</NameKana>
+    <AgentCode>RT</AgentCode>
+    <AgentRsvNo>R-150015847-1</AgentRsvNo>
+    <RoomNo>00411</RoomNo>
+    <MemberNumber>0000033</MemberNumber>
+  </SearchData>
+</GetReserveNoRequest>
