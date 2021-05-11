@@ -3,12 +3,9 @@ using Almex.WincalX.Common.Entity.w0cmtp1;
 using Almex.WincalX.Common.Constant.w0cmtp1;
 using Almex.WincalX.Common.w0cmtp1;
 using Almex.WincalX.Service.w0cmtp1;
-using Newtonsoft.Json;
 using System.Threading;
 using log4net;
-using log4net.Config;
 using System.Collections.Generic;
-using Newtonsoft.Json.Serialization;
 public class Customer
 {
   private static readonly ILog logger = LogManager.GetLogger(typeof(Customer));
