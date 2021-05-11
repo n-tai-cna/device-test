@@ -52,6 +52,12 @@ public class Provider
           Console.Out.WriteLine("Log_Registration");
           utils.requestAndResponse(requestMessage, "3010", new LogRegistration.RequestExtendParam());
           break;
+        case "3900":
+          logger.Info("Enter name of xml file: ");
+          string xmlFileName = Console.ReadLine();
+          Console.Out.WriteLine("smart_check_in");
+          utils.requestAndResponse(requestMessage, "3900", new SmartCheckIn.RequestExtendParam("api"), xmlFileName);
+          break;
         case "4008":
           Console.Out.WriteLine("card_issuance");
           utils.requestAndResponse(requestMessage, "4008", new Card.IssueInfo.RequestExtendParam());
